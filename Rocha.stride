@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Rocha" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body/>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Rocha wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="someRocha()" expression-java="someRocha()" enable="true"/>
+                <blank/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="saiRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="getWorld().removeObject(this)" expression-java="getWorld().removeObject(this)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="someRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <call expression="getWorldOfType(MyWorld.class).adicionaRocha()" expression-java="getWorldOfType(MyWorld.class).adicionaRocha()" enable="true"/>
+                        <call expression="saiRocha()" expression-java="saiRocha()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>
