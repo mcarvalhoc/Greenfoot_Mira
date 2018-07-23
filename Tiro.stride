@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Tiro" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="Integer" type-java="Integer" name="contador" value="0" value-java="0" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body/>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Tiro wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="contador" dest-java="contador" src="contador+2" src-java="contador + 2" enable="true"/>
+                <call expression="move(Greenfoot.getRandomNumber(800))" expression-java="move(Greenfoot.getRandomNumber(800))" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

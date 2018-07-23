@@ -7,6 +7,8 @@ import greenfoot.*;
  */
 public class Mira extends Actor
 {
+    private Integer contador = 0;
+    private boolean podeAtirar = true;
 
     /**
      * 
@@ -20,17 +22,39 @@ public class Mira extends Actor
      */
     public void act()
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if (mouse != null) {
-            setLocation(mouse.getX(), mouse.getY());
-        }
-        
+        movimentoMira();
+        destroiRocha();
     }
 
     /**
      * 
      */
-    public void movimentoMouse()
+    public void adicionaTiro()
     {
+    }
+
+    /**
+     * 
+     */
+    public void movimentoMira()
+    {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {
+            setLocation(mouse.getX(), mouse.getY());
+        }
+    }
+
+    /**
+     * 
+     */
+    public void destroiRocha()
+    {
+        if (Greenfoot.mouseClicked(this)) {
+            if (isTouching(Rocha.class)) {
+                getWorldOfType(MyWorld.class).contaRocha();
+                getWorldOfType(MyWorld.class).adicionaRocha();
+                removeTouching(Rocha.class);
+            }
+        }
     }
 }

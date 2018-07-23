@@ -6,7 +6,10 @@
         <import target="greenfoot.*" enable="true"/>
     </imports>
     <implements/>
-    <fields/>
+    <fields>
+        <variable access="private" type="Integer" type-java="Integer" name="contador" value="0" value-java="0" enable="true"/>
+        <variable access="private" type="boolean" type-java="boolean" name="podeAtirar" value="true" value-java="true" enable="true"/>
+    </fields>
     <constructors>
         <constructor access="public" enable="true">
             <javadoc xml:space="preserve"/>
@@ -21,20 +24,46 @@
             <params/>
             <throws/>
             <body>
+                <call expression="movimentoMira()" expression-java="movimentoMira()" enable="true"/>
+                <call expression="destroiRocha()" expression-java="destroiRocha()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="adicionaTiro" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body/>
+        </method>
+        <method access="public" type="void" type-java="void" name="movimentoMira" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
                 <variable type="MouseInfo" type-java="MouseInfo" name="mouse" value="Greenfoot.getMouseInfo()" value-java="Greenfoot.getMouseInfo()" enable="true"/>
                 <if condition="mouse!=null" condition-java="mouse != null" enable="true">
                     <ifStatements>
                         <call expression="setLocation(mouse.getX(),mouse.getY())" expression-java="setLocation(mouse.getX(), mouse.getY())" enable="true"/>
                     </ifStatements>
                 </if>
-                <blank/>
             </body>
         </method>
-        <method access="public" type="void" type-java="void" name="movimentoMouse" enable="true">
+        <method access="public" type="void" type-java="void" name="destroiRocha" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
-            <body/>
+            <body>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <if condition="isTouching(Rocha.class)" condition-java="isTouching(Rocha.class)" enable="true">
+                            <ifStatements>
+                                <call expression="getWorldOfType(MyWorld.class).contaRocha()" expression-java="getWorldOfType(MyWorld.class).contaRocha()" enable="true"/>
+                                <call expression="getWorldOfType(MyWorld.class).adicionaRocha()" expression-java="getWorldOfType(MyWorld.class).adicionaRocha()" enable="true"/>
+                                <call expression="removeTouching(Rocha.class)" expression-java="removeTouching(Rocha.class)" enable="true"/>
+                            </ifStatements>
+                        </if>
+                    </ifStatements>
+                </if>
+            </body>
         </method>
     </methods>
 </class>

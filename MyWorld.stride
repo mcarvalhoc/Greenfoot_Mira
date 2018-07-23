@@ -9,15 +9,19 @@
     <fields>
         <variable access="private" type="Rocha" type-java="Rocha" name="rocha" value="null" value-java="null" enable="true"/>
         <variable access="private" type="Mira" type-java="Mira" name="mira" value="null" value-java="null" enable="true"/>
+        <variable access="private" type="Placar" type-java="Placar" name="placar" value="null" value-java="null" enable="true"/>
+        <variable access="private" type="Foguete" type-java="Foguete" name="foguete" value="null" value-java="null" enable="true"/>
     </fields>
     <constructors>
         <constructor access="public" enable="true">
             <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
             <params/>
             <throws/>
-            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <delegate target="super" params="800,500,1" params-java="800, 500, 1"/>
             <body>
                 <call expression="prepare()" expression-java="prepare()" enable="true"/>
+                <call expression="prioridadeClasses()" expression-java="prioridadeClasses()" enable="true"/>
+                <blank/>
             </body>
         </constructor>
     </constructors>
@@ -29,7 +33,13 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
             <throws/>
             <body>
                 <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
+                <call expression="adicionaRocha()" expression-java="adicionaRocha()" enable="true"/>
                 <call expression="adicionaMira()" expression-java="adicionaMira()" enable="true"/>
+                <assign dest="placar" dest-java="placar" src="new Placar()" src-java=" new Placar()" enable="true"/>
+                <call expression="addObject(placar,400,25)" expression-java="addObject(placar, 400, 25)" enable="true"/>
+                <assign dest="foguete" dest-java="foguete" src="new Foguete()" src-java=" new Foguete()" enable="true"/>
+                <call expression="addObject(foguete,274,213)" expression-java="addObject(foguete, 274, 213)" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="adicionaRocha" enable="true">
@@ -37,7 +47,7 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
             <params/>
             <throws/>
             <body>
-                <call expression="addObject(new Rocha(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Rocha(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+                <call expression="addObject(new Rocha(),Greenfoot.getRandomNumber(800),Greenfoot.getRandomNumber(500))" expression-java="addObject( new Rocha(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(500))" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="adicionaMira" enable="true">
@@ -48,6 +58,14 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
                 <call expression="addObject(new Mira(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Mira(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
             </body>
         </method>
+        <method access="public" type="void" type-java="void" name="adicionaPlacar" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(new Placar(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400))" expression-java="addObject( new Placar(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400))" enable="true"/>
+            </body>
+        </method>
         <method access="public" type="void" type-java="void" name="moveMira" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
@@ -55,6 +73,23 @@ Ou seja: criar os objetos iniciais e adicioná-los ao mundo.</javadoc>
             <body>
                 <call expression="Greenfoot.mouseMoved(Mira.class)" expression-java="Greenfoot.mouseMoved(Mira.class)" enable="true"/>
                 <blank/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="contaRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="placar.adicionaPontoRocha()" expression-java="placar.adicionaPontoRocha()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="prioridadeClasses" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="setActOrder(Mira.class)" expression-java="setActOrder(Mira.class)" enable="true"/>
+                <call expression="setActOrder(Rocha.class)" expression-java="setActOrder(Rocha.class)" enable="true"/>
             </body>
         </method>
     </methods>

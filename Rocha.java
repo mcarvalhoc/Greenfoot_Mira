@@ -7,6 +7,7 @@ import greenfoot.*;
  */
 public class Rocha extends Actor
 {
+    private Integer contador = 0;
 
     /**
      * 
@@ -20,16 +21,17 @@ public class Rocha extends Actor
      */
     public void act()
     {
+        contador = contador + 1;
+        move(3);
+        if (isAtEdge()) {
+            int angle = Greenfoot.getRandomNumber(350);
+            setRotation(angle);
+            turn(3);
+        }
+        if (isTouching(Rocha.class)) {
+            turn(-1);
+        }
         someRocha();
-        
-    }
-
-    /**
-     * 
-     */
-    public void saiRocha()
-    {
-        getWorld().removeObject(this);
     }
 
     /**
@@ -41,5 +43,13 @@ public class Rocha extends Actor
             getWorldOfType(MyWorld.class).adicionaRocha();
             saiRocha();
         }
+    }
+
+    /**
+     * 
+     */
+    public void saiRocha()
+    {
+        getWorld().removeObject(this);
     }
 }

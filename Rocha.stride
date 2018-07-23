@@ -6,7 +6,9 @@
         <import target="greenfoot.*" enable="true"/>
     </imports>
     <implements/>
-    <fields/>
+    <fields>
+        <variable access="private" type="Integer" type-java="Integer" name="contador" value="0" value-java="0" enable="true"/>
+    </fields>
     <constructors>
         <constructor access="public" enable="true">
             <javadoc xml:space="preserve"/>
@@ -21,16 +23,21 @@
             <params/>
             <throws/>
             <body>
+                <assign dest="contador" dest-java="contador" src="contador+1" src-java="contador + 1" enable="true"/>
+                <call expression="move(3)" expression-java="move(3)" enable="true"/>
+                <if condition="isAtEdge()" condition-java="isAtEdge()" enable="true">
+                    <ifStatements>
+                        <variable type="int" type-java="int" name="angle" value="Greenfoot.getRandomNumber(350)" value-java="Greenfoot.getRandomNumber(350)" enable="true"/>
+                        <call expression="setRotation(angle)" expression-java="setRotation(angle)" enable="true"/>
+                        <call expression="turn(3)" expression-java="turn(3)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="isTouching(Rocha.class)" condition-java="isTouching(Rocha.class)" enable="true">
+                    <ifStatements>
+                        <call expression="turn(-1)" expression-java="turn(-1)" enable="true"/>
+                    </ifStatements>
+                </if>
                 <call expression="someRocha()" expression-java="someRocha()" enable="true"/>
-                <blank/>
-            </body>
-        </method>
-        <method access="public" type="void" type-java="void" name="saiRocha" enable="true">
-            <javadoc xml:space="preserve"/>
-            <params/>
-            <throws/>
-            <body>
-                <call expression="getWorld().removeObject(this)" expression-java="getWorld().removeObject(this)" enable="true"/>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="someRocha" enable="true">
@@ -44,6 +51,14 @@
                         <call expression="saiRocha()" expression-java="saiRocha()" enable="true"/>
                     </ifStatements>
                 </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="saiRocha" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="getWorld().removeObject(this)" expression-java="getWorld().removeObject(this)" enable="true"/>
             </body>
         </method>
     </methods>
